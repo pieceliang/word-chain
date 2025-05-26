@@ -186,7 +186,7 @@ body.dark-mode .top-btn.danger:hover {
     <div id="wordList"></div>
   
 <div id="topRightButtons">
- 
+<button id="musicToggle" onclick="toggleMusic()">🔇</button>
 <button class="top-btn" onclick="playMusic()">🎵 Music</button>
 <button class="top-btn" onclick="toggleDarkMode()">🌓 Dark Mode</button>
  
@@ -262,6 +262,19 @@ body.dark-mode .top-btn.danger:hover {
         container.appendChild(document.createElement("br"));
       }
     }
+
+  const music = document.getElementById("bgMusic");
+  const btn = document.getElementById("musicToggle");
+
+  function toggleMusic() {
+    if (music.paused) {
+      music.play();
+      btn.textContent = "🔊";
+    } else {
+      music.pause();
+      btn.textContent = "🔇";
+    }
+  }
 
   function playMusic() {
     const music = document.getElementById("bgMusic");
